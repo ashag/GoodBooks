@@ -1,4 +1,5 @@
 GoodBooks::Application.routes.draw do
+  
   resources :friendships
 
   resources :books
@@ -6,6 +7,11 @@ GoodBooks::Application.routes.draw do
   resources :bookshelves
 
   resources :users
+  resources :sessions
+
+  get 'login' => 'sessions#new', :as => 'login'
+  get 'logout' => 'sessions#destroy', as: 'logout'
+  get 'sign_up' => 'users#new', :as => 'sign_up'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
