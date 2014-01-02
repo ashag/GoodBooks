@@ -3,8 +3,6 @@ GoodBooks::Application.routes.draw do
   get "welcome/index"
   resources :friendships
 
-  resources :books
-
   resources :bookshelves
 
   resources :users
