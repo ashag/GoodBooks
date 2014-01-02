@@ -34,6 +34,10 @@ end
 
 gem 'bcrypt-ruby', '~> 3.1.2'
 
+gem "therubyracer"
+gem "less-rails" 
+gem "twitter-bootstrap-rails"
+
 # Use ActiveModel has_secure_passwordx
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
