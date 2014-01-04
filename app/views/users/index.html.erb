@@ -14,7 +14,7 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.name %></td>
-        <% if current_user == true %>
+        <% if current_user %>
           <td><%= link_to 'Add Friend', friendships_path(friend_id: user), method: :post %></td>
         <% end %>
       </tr>
@@ -23,5 +23,5 @@
 </table>
 
 <br>
-
+<br>
 <%= link_to 'Sign Up', sign_up_path %>

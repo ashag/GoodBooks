@@ -1,0 +1,20 @@
+<table class='book_search_table'>
+	<tr>
+		<th><h3>Cover</h3></th>
+		<th><h3>Title</h3></th>
+		<th><h3>Authors</h3></th>
+		<th><h3>Link</h3></th>
+	</tr>
+	<tr class='book_search_results'>
+	<ul>
+		<% @books.map do |f| %>
+			<tr>
+			<td><%= image_tag f['volumeInfo']['imageLinks']['thumbnail'] %> </td>
+			<td><strong><%= f['volumeInfo']['title'] %></strong</td>
+			<td><% f['volumeInfo']['authors'].map do |author| %>
+						<ul><li><%= author %></li>
+					<% end %>
+					</ul></td>						
+		<% end %>
+	</tr>
+</table>

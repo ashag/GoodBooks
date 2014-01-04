@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140104010049) do
+ActiveRecord::Schema.define(version: 20140104020859) do
 
   create_table "books", force: true do |t|
     t.string   "title"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20140104010049) do
     t.boolean  "read"
     t.boolean  "wants_to_read"
     t.boolean  "currently_reading"
+    t.integer  "user_id"
   end
 
   create_table "bookshelves_books", force: true do |t|

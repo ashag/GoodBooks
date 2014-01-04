@@ -6165,3 +6165,8 @@ a.badge:focus {
 .affix {
   position: fixed;
 }
+
+.signup_button {
+  font-size: 100px;
+  margin-right: 100px;
+}

@@ -17,6 +17,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def create_shelf
+    Bookshelf.create(user_id: @user.id)
+  end
+
   # GET /users/1/edit
   def edit
   end
@@ -29,6 +33,8 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
+        create_shelf
+        
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render action: 'show', status: :created, location: @user }
       else
@@ -68,6 +74,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :bookshelf_id)
     end
 end

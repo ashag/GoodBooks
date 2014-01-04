@@ -1,4 +1,13 @@
-<p id="notice"><%= notice %></p>
+<% if current_user %>
+	<h1>Your Bookshelf</h1>
+	<br>
+	<h3>Read</h3> vb
+	
+	<br>
+	<h3>Want To Read</h3>
 
-<%= link_to 'Edit', edit_bookshelf_path(@bookshelf) %> |
+	<br>
+	<h3>Currently Reading</h3>
+
+
 <%= link_to 'Back', bookshelves_path %>
