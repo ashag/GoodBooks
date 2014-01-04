@@ -9,6 +9,12 @@
     <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
   </div>
 
+  <%= form_tag("/search", method: "get") do %>
+	  <%= label_tag(:q, "Search for:") %>
+	  <%= text_field_tag(:q) %>
+	  <%= submit_tag("Search") %>
+  <% end %>	
+
   <!-- Example row of columns -->
   <div class="row">
     <div class="span4">

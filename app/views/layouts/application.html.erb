@@ -53,11 +53,15 @@
                 </ul>
               </li>
             </ul>
-            <form class="navbar-form pull-right">
-              <input class="span2" type="text" placeholder="Email">
-              <input class="span2" type="password" placeholder="Password">
-              <button type="submit" class="btn">Sign in</button>
-            </form>
+            <% if current_user %>
+              <%= link_to "Sign out", destroy_sessions_path %>
+            <% else %> 
+              <%= form_for(sessions, :as => login, :html => {class:"navbar-form pull-right"}, :url => sessions_path(login)) do |f| %>
+               <%= text_field_tag :email, params[:email] %>
+               <%= password_field_tag :password %>
+               <%= submit_tag "Sign in" %>
+              <% end %>
+            <% end %>
           </div><!--/.nav-collapse -->
         </div>
       </div>
