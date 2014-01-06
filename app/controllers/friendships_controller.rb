@@ -4,12 +4,11 @@ class FriendshipsController < ApplicationController
   # POST /friendships
   # POST /friendships.json
   def create
-    @friendship = current_user.friendship.build(friend_id: params[:friend_id])
-
+    @friendship = current_user.friendships.build(friend_id: params[:friend_id])
     if @friendship.save
       redirect_to profile_path, notice: 'Added friend'
     else
-      redirect_to users_path, error: 'Unable to add friend'
+      redirect_to profile_path, error: 'Unable to add friend'
     end
   end
 
@@ -18,7 +17,7 @@ class FriendshipsController < ApplicationController
   # DELETE /friendships/1
   # DELETE /friendships/1.json
   def destroy
-    @friendship = current_user.friendships.find(friend_id: params[:id])
+    @friendship = current_user.friendships.find(params[:id])
     @friendship.destroy
     flash[:notice] = 'Friendship destroyed'
     redirect_to current_user

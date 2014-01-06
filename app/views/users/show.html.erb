@@ -1,31 +1,48 @@
-<% if current_user %>
-	<h1>My profile:</h1>
-	<p>
-	  <strong>Name:</strong>
-	  <%= current_user.name %>
-	</p>
+<link href="assets/bootstrap.css" rel="stylesheet">
+  <% if current_user %>
+  	<h1>My profile:</h1>
+  	<p>
+  	  <strong>Name:</strong>
+  	  <%= current_user.name %>
+  	</p>
 
-	<p>
-	  <strong>Email:</strong>
-	  <%= current_user.email %>
-	</p>
+  	<p>
+  	  <strong>Email:</strong>
+  	  <%= current_user.email %>
+  	</p>
 
-	<h2>Friends:</h2>
-	<ul>
-		<% for friendship in @user.friendships %>
-			<li><%= friendship.friend.name %>
-			<%= link_to 'remove', friendship, method: :delete %></li>
-		<% end %>
-	</ul>
+  	<%= link_to 'Edit Profile', edit_user_path(current_user.id) %> 
+  	<br>
 
-	<h2>Friended by Users:</h2>
-	<ul>
-		<% for user in @user.inverse_friends %>
-			<li><%= user.name %></li>
-		<% end %>
-	</ul>
-<% end %>
+  	<p><h2><%= current_user.name %>'s Bookshelf</h2>
+  	<% if current_user.bookshelf.books.empty? %>
+  		You have not added any books
+  	<% else %>
+  		<% current_user.bookshelf.books.each do |books| %>
+  			<td>
+  				<%= books.title %>
+  				<%= books.cover_image %>
+  			</td>
+  		<% end %>
+  	<% end %>
+  	</p>
 
+  	<br>
 
-<%= link_to 'Edit', edit_user_path(current_user.id) %> 
+  	<h2>Friends:</h2>
+  	<ul>
+  		<% for friendship in @user.friendships %>
+  			<li><%= friendship.friend.name %>
+  			(<%= link_to 'remove', friendship, method: :delete %>)</li>
+  		<% end %>
+  	</ul>
+
+  	<h2>Friended by Users:</h2>
+  	<ul>
+  		<% for user in @user.inverse_friends %>
+  			<li><%= user.name %></li>
+  		<% end %>
+  	</ul>
+  <% end %>
+
 

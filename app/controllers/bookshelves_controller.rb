@@ -4,7 +4,6 @@ class BookshelvesController < ApplicationController
   def show
     @user = User.find(params[:id])
     @shelf = Bookshelf.find(user_id: @user.id)
-
   end
 
   def search
@@ -12,18 +11,14 @@ class BookshelvesController < ApplicationController
   end
 
   def add_book
-    @book = Book.check_book_in_shelf
-
-    if @book == nil
-      Book.add_book_to_shelf 
+    # refactor this crap later! 
+    book = @books.find(isbn: params[:isbn]).first
+    check_for_book = Book.check_book_in_shelf(book.isbn)
+    if check_for_book == nil
+      current_user.bookshelf.books.create(title: book.title, author: book.author, isbn: book.isbn, cover_image: book.cover_image)
+      redirect_to user_path
     else
       redirect_to search_path, notice: 'Book is already in your bookshelf'
- 
-
-    if @book.save
-      redirect_to bookshelf_path(@bookshelves), notice: 'Book was added to shelf'
-    else
-      render :book, notice: 'Book was not added. Please try again.'
     end
   end
 
@@ -40,13 +35,6 @@ class BookshelvesController < ApplicationController
   end
 
   private
-    # # Use callbacks to share common setup or constraints between actions.
-    # def set_bookshelf
-    #   @user = User.find(params[:id])
-    #   @bookshelf = Bookshelf.find(user_id: params[:id])
-    # end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
     def bookshelf_params
       params.require(:bookshelf).permit(:user_id, :book)
     end

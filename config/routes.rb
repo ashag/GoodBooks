@@ -16,7 +16,7 @@ GoodBooks::Application.routes.draw do
 
   get '/search' => 'bookshelves#search'
   get '/about' => 'welcome#about'
-  get '/add_book' => 'bookshelves#book'
+  get '/add_book' => 'bookshelves#add_book'
   get '/users/search' => 'users#search'
 
   # The priority is based upon order of creation: first created -> highest priority.

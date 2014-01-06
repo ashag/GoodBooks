@@ -12,10 +12,9 @@
 			<td class='result'><%= image_tag volume.cover_image %> </td>
 			<td class='result'><strong><%= volume.title %></strong</td>
 			<td class='result'><%= volume.author %></td>
-
-      <!-- pass volume to controller to add book -->
-			<td><a href='/add_book' class='btn btn-primary btn-large'>Add to bookshelf &raquo;</a></td>
-
+      <% if current_user %>
+			   <td><a href='add_book_path' class='btn btn-primary btn-large'>Add to bookshelf &raquo;</a></td>
+      <% end %>
     <% end %>
 	</tr>
 </table>
