@@ -6,9 +6,9 @@
     <br>
     Start off the new year with a resolution to read more. Forget the gym, exercise that big brain of yours by reading more. Good Books can help you. Add books you want to read in the 'Want to read' bookshelf, then move it to 'Read' when you're finished. We keep you honest! </p>
     <br>
-    <p><a href="#" class="btn btn-primary btn-large">Sign Up &raquo;</a></p>
+    <p><a href="sign_up" class="btn btn-primary btn-large">Sign Up &raquo;</a></p>
 
-    <div class='signup_button'>
+    <div class='search_button'>
       <%= form_tag("/search", method: "get") do %>
         <%= label_tag(:query, "Search for books:") %>
         <%= text_field_tag(:query, params[:query]) %>
@@ -21,19 +21,17 @@
   <div class="row">
     <div class="span4">
       <h2>Book of the Month</h2>
-      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-      <p><a class="btn" href="#">View details &raquo;</a></p>
-    </div>
+      <img src="/assets/rails.jpeg">
+    </div>  
     <div class="span4">
       <h2>Highest Review</h2>
-      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-      <p><a class="btn" href="#">View details &raquo;</a></p>
+      <img src="/assets/beginning_ruby.jpeg">
    </div>
     <div class="span4">
       <h2>Trending</h2>
-      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-      <p><a class="btn" href="#">View details &raquo;</a></p>
-    </div>
+      <img src="/assets/rework.png">
+    </div>  
+  </div>
 </div>
 
 

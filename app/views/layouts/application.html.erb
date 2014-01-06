@@ -34,18 +34,18 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#">Good Books</a>
+          <a class="brand" href="/">Good Books</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="/">Home</a></li>
+                <li class="active"><a href="/">Home</a></li>
               <li><a href="/about">About</a></li>
-              <li><a href="#contact">Friends</a></li>
+              <li><a href="/users">Friends</a></li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bookshelf <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="welcome#about">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
+                  <li><a href="#">Read</a></li>
+                  <li><a href="#">Want To Read</a></li>
+                  <li><a href="#">Currently Reading</a></li>
                   <li class="divider"></li>
                   <li class="nav-header">Nav header</li>
                   <li><a href="#">Separated link</a></li>
@@ -53,7 +53,8 @@
                 </ul>
               </li>
             </ul>
-            <<% if current_user %>
+            <% if current_user %>
+            <%= link_to "Profile", profile_path(current_user.id) %>
               Logged in as <%= current_user.name %> (<%= link_to "Log out", logout_path %>)
             <% else %>
                 <%= link_to "Sign In", login_path %>
@@ -71,22 +72,10 @@
     </div>   
       
     <footer>
-        <p>&copy; Good Books 2014</p>
+
     </footer>
 
-    <script src="javascript/jquery.js"></script>
-    <script src="javascript/bootstrap-transition.js"></script>
-    <script src="javascript/bootstrap-alert.js"></script>
-    <script src="javascript/bootstrap-modal.js"></script>
-    <script src="javascript/bootstrap-dropdown.js"></script>
-    <script src="javascript/bootstrap-scrollspy.js"></script>
-    <script src="javascript/bootstrap-tab.js"></script>
-    <script src="javascript/bootstrap-tooltip.js"></script>
-    <script src="javascript/bootstrap-popover.js"></script>
-    <script src="javascript/bootstrap-button.js"></script>
-    <script src="javascript/bootstrap-collapse.js"></script>
-    <script src="javascript/bootstrap-carousel.js"></script>
-    <script src="javascript/bootstrap-typeahead.js"></script>
+    
 
   </body>
 </html>

@@ -7,9 +7,9 @@ class FriendshipsController < ApplicationController
     @friendship = current_user.friendship.build(friend_id: params[:friend_id])
 
     if @friendship.save
-      redirect_to current_user, notice: 'Added friend'
+      redirect_to profile_path, notice: 'Added friend'
     else
-      redirect_to current_user, error: 'Unable to add friend'
+      redirect_to users_path, error: 'Unable to add friend'
     end
   end
 

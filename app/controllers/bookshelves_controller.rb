@@ -8,7 +8,23 @@ class BookshelvesController < ApplicationController
   end
 
   def search
-    @books = Book.find_books(params[:query])
+    @books = Book.find_books(params[:query])  
+  end
+
+  def add_book
+    @book = Book.check_book_in_shelf
+
+    if @book == nil
+      Book.add_book_to_shelf 
+    else
+      redirect_to search_path, notice: 'Book is already in your bookshelf'
+ 
+
+    if @book.save
+      redirect_to bookshelf_path(@bookshelves), notice: 'Book was added to shelf'
+    else
+      render :book, notice: 'Book was not added. Please try again.'
+    end
   end
 
   def update

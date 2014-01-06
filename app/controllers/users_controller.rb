@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @user = User.find_by(params[:id])
   end
 
   # GET /users/new
@@ -19,6 +20,17 @@ class UsersController < ApplicationController
 
   def create_shelf
     Bookshelf.create(user_id: @user.id)
+  end
+
+  def search
+    search_for_friend = params[:find_friend]
+    @find_user = User.find_user(search_for_friend)
+    if @find_user.empty?
+      redirect_to user_path, notice: 'User not found'
+    else
+      flash[:notice] = 'Users found'
+      render :search
+    end
   end
 
   # GET /users/1/edit
@@ -74,6 +86,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, :bookshelf_id)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :bookshelf_id, :find_friend)
     end
 end

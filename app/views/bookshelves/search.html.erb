@@ -3,18 +3,19 @@
 		<th><h3>Cover</h3></th>
 		<th><h3>Title</h3></th>
 		<th><h3>Authors</h3></th>
-		<th><h3>Link</h3></th>
+		<th><h3></h3></th>
 	</tr>
 	<tr class='book_search_results'>
-	<ul>
-		<% @books.map do |f| %>
+	<ul class='book_search_list'>
+		<% @books.each do |volume| %>
 			<tr>
-			<td><%= image_tag f['volumeInfo']['imageLinks']['thumbnail'] %> </td>
-			<td><strong><%= f['volumeInfo']['title'] %></strong</td>
-			<td><% f['volumeInfo']['authors'].map do |author| %>
-						<ul><li><%= author %></li>
-					<% end %>
-					</ul></td>						
-		<% end %>
+			<td class='result'><%= image_tag volume.cover_image %> </td>
+			<td class='result'><strong><%= volume.title %></strong</td>
+			<td class='result'><%= volume.author %></td>
+
+      <!-- pass volume to controller to add book -->
+			<td><a href='/add_book' class='btn btn-primary btn-large'>Add to bookshelf &raquo;</a></td>
+
+    <% end %>
 	</tr>
 </table>

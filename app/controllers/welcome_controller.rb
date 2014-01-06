@@ -6,7 +6,13 @@ class WelcomeController < ApplicationController
   	
   end
 
-  def search
-	"https://www.googleapis.com/books/v1/volumes?q=#{params[:q]}"
-  end
+  # def trending
+  # 	HTTParty.get('https://www.googleapis.com/books/v1/volumes/A78bYfzYKZ4C')
+  # end
+  # helper_method :trending
+
+  # def book_of_month
+  # 	HTTParty.get('https://www.googleapis.com/books/v1/volumes/U77um_h_dgcC')
+  # end
+  # helper_method :book_of_month
 end

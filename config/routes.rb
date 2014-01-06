@@ -11,9 +11,13 @@ GoodBooks::Application.routes.draw do
   get 'logout' => 'sessions#destroy', as: 'logout'
   get 'sign_up' => 'users#new', :as => 'sign_up'
   get '/users/:id/bookshelves' => 'bookshelves#show'
+  get '/users/:id/profile' => 'users#show', :as => 'profile'
+
 
   get '/search' => 'bookshelves#search'
   get '/about' => 'welcome#about'
+  get '/add_book' => 'bookshelves#book'
+  get '/users/search' => 'users#search'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

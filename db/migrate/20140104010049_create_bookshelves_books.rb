@@ -1,6 +1,6 @@
 class CreateBookshelvesBooks < ActiveRecord::Migration
   def change
-    create_table :bookshelves_books do |t|
+    create_table :bookshelf_books do |t|
       t.integer :bookshelf_id
       t.integer :book_id
 

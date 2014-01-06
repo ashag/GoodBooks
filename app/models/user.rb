@@ -13,4 +13,7 @@ class User < ActiveRecord::Base
 	has_one :bookshelf
 
 
+	def self.find_user(search)
+		User.where(["name LIKE ?", "#{search}"])
+	end
 end
